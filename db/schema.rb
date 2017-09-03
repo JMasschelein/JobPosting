@@ -10,10 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902181357) do
+ActiveRecord::Schema.define(version: 20170903151021) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.boolean "public", default: true
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -28,6 +36,25 @@ ActiveRecord::Schema.define(version: 20170902181357) do
     t.text "description"
     t.date "deadline"
     t.decimal "budget"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "topic_id"
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_jobs_on_category_id"
+    t.index ["topic_id"], name: "index_jobs_on_topic_id"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "company"
+    t.string "address"
+    t.string "postcal_code"
+    t.string "city"
+    t.string "country"
+    t.string "email"
+    t.string "password_digest"
+    t.string "phone_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

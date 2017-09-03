@@ -41,6 +41,7 @@ group :development, :test do
   gem 'selenium-webdriver'
   gem 'railties', '~> 5.1.3'
   gem "activemodel"
+  gem 'shoulda'
 end
 
 group :development do
@@ -53,6 +54,7 @@ group :development do
 end
 
 gem 'bootstrap-sass'
+gem 'bcrypt'
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]

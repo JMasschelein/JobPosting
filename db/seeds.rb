@@ -1,10 +1,18 @@
  require 'random_data'
 
+ 15.times do
+   Category.create!(
+     name:         RandomData.random_sentence,
+     description:  RandomData.random_paragraph
+   )
+ end
+categories = Category.all
+
  # Create Posts
  50.times do
- # #1
+
    Job.create!(
- # #2
+     category: categories.sample,
      title:  RandomData.random_sentence,
      description:   RandomData.random_paragraph,
      deadline: "17/9/2015",
@@ -24,5 +32,6 @@
  end
  
  puts "Seed finished"
+puts "#{Category.count} categories created"
  puts "#{Job.count} posts created"
  puts "#{Comment.count} comments created"

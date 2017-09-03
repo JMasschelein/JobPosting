@@ -1,2 +1,17 @@
-<h1>Jobs#show</h1>
-<p>Find me in app/views/jobs/show.html.erb</p>
+ <h1><%= @job.title %></h1>
+
+
+ <div class="row">
+   <div class="col-md-8">
+      <p><%= @job.description %></p>
+ <p><%= @job.deadline %></p>
+ <p><%= @job.budget %></p>
+   </div>
+   <div class="col-md-4">
+     <%= link_to "Edit", edit_category_job_path(@job.category, @job), class: 'btn btn-success' %>
+     <%= link_to "Delete Job", [@job.category, @job], method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure you want to delete this job?' } %>
+
+       
+       
+   </div>
+ </div>

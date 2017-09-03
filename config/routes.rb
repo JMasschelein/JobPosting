@@ -1,17 +1,14 @@
 Rails.application.routes.draw do
-  get 'jobs/index'
+    
+   resources :categories do
+     resources :jobs, except: [:index]
+   end    
+    
+  resources :users, only: [:new, :create]    
 
-  get 'jobs/show'
-
-  get 'jobs/new'
-
-  get 'jobs/edit'
-
-  get 'welcome/index'
-
-  get 'welcome/about'
-
-  get 'welcome/contact'
+  get 'about' => 'welcome#about'
+    
+  get 'contact' => 'welcome#contact'    
 
   root 'welcome#index'
     
